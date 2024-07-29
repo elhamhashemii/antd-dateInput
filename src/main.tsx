@@ -1,14 +1,12 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
-  RouterProvider,
+  HashRouter,
 } from "react-router-dom";
-import router from './router.tsx';
-// import 'antd/dist/antd.css';
+import { App } from 'antd';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <HashRouter>
+    <App />
+  </HashRouter>,
 )
