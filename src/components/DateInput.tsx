@@ -12,11 +12,12 @@ interface IProps {
     onDate: (date: string) => void;
     title?: string;
     className?: string;
+    separatorColor?: string;
 }
 
 
 export default function DateInput(props: IProps) {
-    const { onDate, title, className } = props;
+    const { onDate, title, className, separatorColor = "#111" } = props;
     const [day, setDay] = useState<number>()
     const [month, setMonth] = useState<number>()
     const [form] = Form.useForm()
@@ -78,11 +79,11 @@ export default function DateInput(props: IProps) {
             <Form.Item className="!mb-0" name="day" rules={[{ required: true, message: "" }, { pattern: /^(0?[1-9]|[12][0-9]|3[01])$/, message: "" }]}>
                 <Input variant="borderless" placeholder="DD" maxLength={2} onChange={changeDayHandler} className="min-w-12 text-center" />
             </Form.Item>
-            <span>-</span>
+            <span style={{ color: separatorColor }}>-</span>
             <Form.Item className="!mb-0" name="month" rules={[{ required: true, message: "" }, { pattern: /^(0?[1-9]|1[0-2])$/, message: "" }]}>
                 <Input variant="borderless" placeholder="MM" maxLength={2} onChange={changeMonthHandler} className="min-w-12 text-center" />
             </Form.Item>
-            <span>-</span>
+            <span style={{ color: separatorColor }}>-</span>
             <Form.Item className="!mb-0" name="year" rules={[{ required: true, message: "" }, { pattern: /^(1[3-4][2-9][0-9]|14[0-9][0-9]|149[0-9])$/, message: "" }]}>
                 <Input variant="borderless" placeholder="YYYY" maxLength={4} onChange={changeYearHandler} className="min-w-16 text-center" />
             </Form.Item>

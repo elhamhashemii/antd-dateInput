@@ -13,7 +13,7 @@ export default function AntdDateInput() {
         <h1 className="self-center">AntdDateInput</h1>
         {/* <div className="my-4">"This Component is designed for Persian Date"</div> */}
         <div className="w-full lg:w-4/12 xl:w-3/12">
-            <DateInput className="bg " title="title" onDate={handleDate} />
+            <DateInput separatorColor="#c3c3c3" className="bg " title="title" onDate={handleDate} />
         </div>
         <div className="my-4 text-sm">Input Date is: {date}</div>
     </div>
