@@ -1,16 +1,20 @@
-export default function NotFoundPage() {
-    return <div className="w-screen h-screen flex gap-y-12 items-center justify-center bg-black">
-        <div>
-            <div className="text-2xl font-bold border-b py-2">
-                React + tailwind + vite Boilerplate
-            </div>
-            <ul className="list-disc my-6">
-                It supports :
-                <li className="mx-6 mt-4">tailwind</li>
-                <li className="mx-6">typescript</li>
-                <li className="mx-6">react-router-dom</li>
-            </ul>
-        </div>
+import { useState } from "react";
+import DateInput from "../components/DateInput";
 
+export default function AntdDateInput() {
+    const [date, setDate] = useState<string>("")
+
+    function handleDate(date: string) {
+        console.log({ date })
+        date && setDate(date)
+    }
+
+    return <div className="min-h-full flex flex-col items-start justify-center">
+        <h1 className="self-center">AntdDateInput</h1>
+        {/* <div className="my-4">"This Component is designed for Persian Date"</div> */}
+        <div className="w-full lg:w-4/12 xl:w-3/12">
+            <DateInput className="bg " title="title" onDate={handleDate} />
+        </div>
+        <div className="my-4 text-sm">Input Date is: {date}</div>
     </div>
 }

@@ -1,16 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "./pages/root";
+import FeaturesPage from "./pages/FeaturesPage";
 import NotFoundPage from "./pages/notFound";
+import AntdDateInput from "./pages/root";
+import Layout from "./layout";
+import DocsPage from "./pages/DocsPage";
 
 const router = createBrowserRouter([
     // Dashboard Layout Here
     {
         path: '',
-        // element: <DashboardLayout />,
+        element: <Layout />,
         errorElement: <NotFoundPage />,
         children: [
-            { path: "", element: <HomePage /> },
-            // { path: "/test", element: <TestPage /> },
+            { path: "/", element: <AntdDateInput /> },
+            { path: "/features", element: <FeaturesPage /> },
+            { path: "/docs", element: <DocsPage /> },
         ]
     },
     // {
